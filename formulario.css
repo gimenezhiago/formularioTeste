@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap');
+
+:root {
+    --color-primaria: #1a659e;
+    --color-secundaria: #004e89;
+    --branco: antiquewhite;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Afacad Flux", sans-serif;
+}
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--color-primaria);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    height: 65vh;
+    width: 20vw;
+    gap: 1.875rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid var(--color-secundaria);
+    border-radius: .4375rem;
+}
+
+form label {
+    display: block;
+}
+
+form input {
+    border: none;
+    border-bottom: 3px solid var(--color-secundaria);
+    background: var(--color-primaria);
+    height: 1.2rem;
+    width: 10rem;
+}
+
+form input:focus {
+    outline: none;
+}
+
+form input[radio] {
+    display: block;
+}
