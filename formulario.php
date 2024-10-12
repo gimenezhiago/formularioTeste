@@ -1,38 +1,36 @@
 <?php
-
-    if(isset($_POST['submit'])){
-        /*print_r('Nome: ' . $_POST['nome']);
-        print_r('<br>');
-        print_r('Email: ' . $_POST['email']);
-        print_r('<br>');
-        print_r('Telefone: ' . $_POST['telefone']);
-        print_r('<br>');
-        print_r('Sexo: ' . $_POST['genero']);
-        print_r('<br>');
-        print_r('Data de nascimento: ' . $_POST['data']);
-        print_r('<br>');
-        print_r('Cidade: ' . $_POST['cidade']);
-        print_r('<br>');
-        print_r('Estado: ' . $_POST['estado']);
-        print_r('<br>');
-        print_r('Endereço: ' . $_POST['endereco']);*/
-    }
-
     include_once('config.php');
 
-    $nome = $_POST['nome'];
-    $email = $_POST['email'];
-    $telefone = $_POST['telefone'];
-    $sexo = $_POST['genero'];
-    $data = $_POST['data'];
-    $cidade = $_POST['cidade'];
-    $estado = $_POST['estado'];
-    $endereco = $_POST['endereco'];
+    if (isset($_POST['submit'])) {
+        $nome = $_POST['nome'];
+        $email = $_POST['email'];
+        $telefone = $_POST['telefone'];
+        $sexo = $_POST['genero'];
+        $data = $_POST['data'];
+        $cidade = $_POST['cidade'];
+        $estado = $_POST['estado'];
+        $endereco = $_POST['endereco'];
 
-    $resul = mysqli_query($conexao, "INSERT INTO usuario(nome, email, telefone, sexo, dataNascimento, cidade, estado, endereco) 
-    VALUES ('$nome', '$email', '$telefone', '$sexo', '$data', '$cidade', '$estado', '$endereco')");
+        $nome = mysqli_real_escape_string($conexao, $nome);
+        $email = mysqli_real_escape_string($conexao, $email);
+        $telefone = mysqli_real_escape_string($conexao, $telefone);
+        $sexo = mysqli_real_escape_string($conexao, $sexo);
+        $data = mysqli_real_escape_string($conexao, $data);
+        $cidade = mysqli_real_escape_string($conexao, $cidade);
+        $estado = mysqli_real_escape_string($conexao, $estado);
+        $endereco = mysqli_real_escape_string($conexao, $endereco);
 
+        $resul = mysqli_query($conexao, "INSERT INTO usuario(nome, email, telefone, sexo, dataNascimento, cidade, estado, endereco) 
+        VALUES ('$nome', '$email', '$telefone', '$sexo', '$data', '$cidade', '$estado', '$endereco')");
+
+        /*if ($resul) {
+            echo "Dados inseridos com sucesso!";
+        } else {
+            echo "Erro ao inserir dados: " . mysqli_error($conexao);
+        }*/
+    }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
